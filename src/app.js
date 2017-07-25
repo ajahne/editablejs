@@ -12,6 +12,16 @@ function doBold() {
   hideControls();
 }
 
+function doItalic() {
+  document.execCommand("italic", false, null);
+  hideControls();
+}
+
+function doUnderline() {
+  document.execCommand("underline", false, null);
+  hideControls();
+}
+
 function onDoubleClick() {
   showControls();
 }
