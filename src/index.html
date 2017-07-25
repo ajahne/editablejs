@@ -4,8 +4,10 @@
   <title>Editable</title>
 </head>
 <body>
-  <p id="hello-world" contenteditable="true">Hello World</p>
-  <button onclick="doBold()">Bold</button>
+  <p id="hello-world" contenteditable="true" ondblclick="onDoubleClick()">Hello World</p>
+  <div id="controls">
+    <button onclick="doBold()" >Bold</button>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
