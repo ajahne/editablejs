@@ -1,6 +1,7 @@
-let id = "hello-world";
-let el = document.getElementById(id);
-let controls = document.getElementById('controls');
+const HELLO_WORLD = "hello-world";
+const CONTROLS = "controls";
+let el = document.getElementById(HELLO_WORLD);
+let controls = document.getElementById(CONTROLS);
 
 let init = () => {hideControls();}
 
