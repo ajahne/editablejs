@@ -1,0 +1,25 @@
+{
+  "name": "editablejs",
+  "version": "1.0.0",
+  "description": "Edit any HTML element",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajahne/editablejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajahne/editablejs/issues"
+  },
+  "homepage": "https://github.com/ajahne/editablejs#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0"
+  }
+}

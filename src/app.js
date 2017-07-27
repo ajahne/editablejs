@@ -1,36 +1,33 @@
-var id = "hello-world";
-var el = document.getElementById(id);
-var controls = document.getElementById('controls');
+let id = "hello-world";
+let el = document.getElementById(id);
+let controls = document.getElementById('controls');
 
+let init = () => {hideControls();}
 
-function init() {
-  hideControls();
-}
-
-function doBold() {
+let doBold = () => {
   document.execCommand("bold", false, null);
   hideControls();
 }
 
-function doItalic() {
+let doItalic = () => {
   document.execCommand("italic", false, null);
   hideControls();
 }
 
-function doUnderline() {
+let doUnderline = () => {
   document.execCommand("underline", false, null);
   hideControls();
 }
 
-function onDoubleClick() {
+let onDoubleClick = () => {
   showControls();
 }
 
-function showControls() {
+let showControls = () => {
   controls.style.display = "block";
 }
 
-function hideControls() {
+let hideControls = () => {
   controls.style.display = "none";
 }
 
