@@ -2,24 +2,24 @@
 Edit any HTML element
 
 ## Idea
-Allow any HTML element to be editable.  Treat an HTML page like an editor.
+- Allow any HTML element to be editable.  Treat an HTML page like an editor.
+- any text is directly editable, text can be styled via a style popup (similar to Slack/iOS)
 
 ## User Stories
-- Sarah wants to edit the title of a page 
-- Dom wants to change body text 
-- Bobby wants to make the footer text bold 
+- Sarah wants to edit the title of a page
+- Dom wants to change body text
+- Bobby wants to make the footer text bold
 
 ## Requirements
 - Allow any element to be editable
-- Accepts HTML text
-- should be able to make any preexisting element editable (e.g. should be able to add a class/id to an element and it just works, should not have to make heavy structural changes like changing <p> to <input>)
+- Changing of text style is done through the popup
 - VanillaJS (no frameworks, libraries)
 
 ## Flow
-- Click on an element
-- Element is now editable
-- Modify text (e.g. add new text, edit text, add styles)
-- Save text by moving cursor off the element (e.g. when element loses focus it should save current text)
+- Highlight text (e.g. a word or phrase)
+- Text style popup appears
+- User clicks a text style
+- Text style is changed
 
 ## Questions
 - What happens when someone clicks an element to edit it, then leaves it blank?  Should this remove the element from the DOM or revert back to the previous value?
