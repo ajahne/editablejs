@@ -3,7 +3,9 @@ const CONTROLS = "controls";
 let el = document.getElementById(HELLO_WORLD);
 let controls = document.getElementById(CONTROLS);
 
-let init = () => {hideControls();}
+let init = () => {
+  hideControls();
+}
 
 let doBold = () => {
   document.execCommand("bold", false, null);
@@ -18,10 +20,6 @@ let doItalic = () => {
 let doUnderline = () => {
   document.execCommand("underline", false, null);
   hideControls();
-}
-
-let onDoubleClick = () => {
-  showControls();
 }
 
 let showControls = () => {
