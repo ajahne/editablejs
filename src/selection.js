@@ -1,4 +1,5 @@
 let selection;
+let selectionText;
 
 document.onselectstart = function() {
   console.log('Selection Start');
@@ -6,5 +7,12 @@ document.onselectstart = function() {
 
 document.onselectionchange = function() {
   selection = document.getSelection();
-  console.log('On Selection Change %o', selection.toString());
+  selectionText = selection.toString();
+  console.log('On Selection Change %o', selectionText);
+  if (selectionText.length === 0) {
+    hideControls();
+  }
+  else {
+    showControls();
+  }
 }
