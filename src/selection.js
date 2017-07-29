@@ -1,18 +1,20 @@
-let selection;
-let selectionText;
+(() => {
+  let selection;
+  let selectionText;
 
-document.onselectstart = function() {
-  console.log('Selection Start');
-}
+  document.onselectstart = function() {
+    console.log('Selection Start');
+  }
 
-document.onselectionchange = function() {
-  selection = document.getSelection();
-  selectionText = selection.toString();
-  console.log('On Selection Change %o', selectionText);
-  if (selectionText.length === 0) {
-    hideControls();
+  document.onselectionchange = function() {
+    selection = document.getSelection();
+    selectionText = selection.toString();
+    console.log('On Selection Change %o', selectionText);
+    if (selectionText.length === 0) {
+      app.hideControls();
+    }
+    else {
+      app.showControls();
+    }
   }
-  else {
-    showControls();
-  }
-}
+})();
