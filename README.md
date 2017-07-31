@@ -1,5 +1,5 @@
 # editablejs
-Edit any HTML element
+Edit any HTML element and allow for rich text formatting
 
 ## Idea
 - Allow any HTML element to be editable.  Treat an HTML page like an editor.
@@ -14,6 +14,7 @@ Edit any HTML element
 - Allow any element to be editable
 - Changing of text style is done through the popup
 - VanillaJS (no frameworks, libraries)
+- Support Bold, Italic, and Underline as well as cut, copy, and paste. 
 
 ## Flow
 - Highlight text (e.g. a word or phrase)
