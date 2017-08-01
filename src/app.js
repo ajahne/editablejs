@@ -1,8 +1,8 @@
 let app = (() => {
-  const HELLO_WORLD = "hello-world";
-  const CONTROLS2 = "controls";
-  let el = document.getElementById(HELLO_WORLD);
-  let controls = document.getElementById(CONTROLS2);
+  const ID_HELLO_WORLD = "hello-world";
+  const ID_CONTROLS = "controls";
+  let el = document.getElementById(ID_HELLO_WORLD);
+  let controls = document.getElementById(ID_CONTROLS);
 
   let init = () => {
     hideControls();
