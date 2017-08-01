@@ -2,11 +2,11 @@
   let selection;
   let selectionText;
 
-  document.onselectstart = function() {
+  document.onselectstart = () => {
     console.log('Selection Start');
   }
 
-  document.onselectionchange = function() {
+  document.onselectionchange = () => {
     selection = document.getSelection();
     selectionText = selection.toString();
     console.log('On Selection Change %o', selectionText);
