@@ -4,7 +4,7 @@ const HELLO_WORLD = 'hello world';
 
 describe('rich text controls', function() {
   let controls = document.getElementById('controls');
-  it('shoudl show controls', function() {
+  it('should show controls', function() {
     app.showControls();
     assert.equal(controls.style.display, 'block');
   });
