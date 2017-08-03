@@ -1,6 +1,4 @@
-// const assert = require('assert');
 let assert = chai.assert;
-const HELLO_WORLD = 'hello world';
 
 describe('rich text controls', function() {
   let controls = document.getElementById('controls');
