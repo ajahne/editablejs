@@ -15,7 +15,7 @@ Edit any HTML element and allow for rich text formatting
 - Allow any element to be editable
 - Changing of text style is done through the popup
 - VanillaJS (no frameworks, libraries)
-- Support Bold, Italic, and Underline as well as cut, copy, and paste. 
+- Support Rich Text (bold, italic, and underline) and Editing (cut, copy, and paste). 
 
 ## Flow
 - Highlight text (e.g. a word or phrase)
