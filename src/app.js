@@ -7,19 +7,23 @@ let app = (() => {
   let init = () => {
     hideControls();
   }
+  
+  let executeCommand = command => {
+    document.execCommand(command, false, null);
+  }
 
   let doBold = () => {
-    document.execCommand("bold", false, null);
+    executeCommand("bold");
     hideControls();
   }
 
   let doItalic = () => {
-    document.execCommand("italic", false, null);
+    executeCommand("italic");
     hideControls();
   }
 
   let doUnderline = () => {
-    document.execCommand("underline", false, null);
+    executeCommand("underline");
     hideControls();
   }
 
