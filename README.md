@@ -26,3 +26,4 @@ Edit any HTML element and allow for rich text formatting
 ## Questions
 - What happens when someone clicks an element to edit it, then leaves it blank?  Should this remove the element from the DOM or revert back to the previous value?
 - From a technical standpoint, is this going to be a class that we add to a DOM element?
+- How do we make this dynamic? Can rich text be added to any element or must a developer specify which elements can/cannot be edited? 
