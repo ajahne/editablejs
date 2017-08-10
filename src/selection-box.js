@@ -4,15 +4,14 @@ let selectionBox = (() => {
   let width;
   let height;
 
-  document.addEventListener('mouseup', function(e) {
+  let getX = () => x;
+  let getY = () => y;
+
+  document.addEventListener('mouseup', (e) => {
     console.log('mouse up %o', e);
     x = e.pageX;
     y = e.pageY;
   }, false);
-
-  let getX = () => x;
-
-  let getY = () => y;
 
   return {
     getX,
