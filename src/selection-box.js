@@ -1,8 +1,8 @@
 let selectionBox = (() => {
   let x = 0;
   let y = 0;
-  let width;
-  let height;
+  let width = 0;
+  let height = 0;
 
   let getX = () => x;
   let getY = () => y;
