@@ -6,6 +6,8 @@ let selectionBox = (() => {
 
   let getX = () => x;
   let getY = () => y;
+  let getWidth = () => width;
+  let getHeight = () => height;
 
   document.addEventListener('mouseup', (e) => {
     console.log('mouse up %o', e);
@@ -15,6 +17,8 @@ let selectionBox = (() => {
 
   return {
     getX,
-    getY
+    getY,
+    getWidth,
+    getHeight
   }
 })();
