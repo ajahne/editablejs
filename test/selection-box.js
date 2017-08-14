@@ -7,4 +7,12 @@ describe('selection-box', function() {
     let y = selectionBox.getY();
     assert.equal(typeof y, 'number');
   });
+  it('should return the width of the selection', function() {
+    let width = selectionBox.getWidth();
+    assert.equal(typeof width, 'number');
+  });
+  it('should return the height of the selection', function() {
+    let height = selectionBox.getHeight();
+    assert.equal(typeof height, 'number');
+  });
 });
