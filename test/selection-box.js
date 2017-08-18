@@ -15,4 +15,12 @@ describe('selection-box', function() {
     let height = selectionBox.getHeight();
     assert.equal(typeof height, 'number');
   });
+  describe('dimensions', function() {
+    it ('should have a width greater than 0', function() {
+      assert.isTrue(selectionBox.getWidth() > 0, 'true');
+    });
+    it ('should have a height greater than 0', function() {
+      assert.isTrue(selectionBox.getHeight() > 0, 'true');
+    });
+  });
 });
