@@ -7,7 +7,7 @@ let app = (() => {
   let init = () => {
     hideControls();
   }
-  
+
   let executeCommand = command => {
     document.execCommand(command, false, null);
   }
@@ -35,6 +35,12 @@ let app = (() => {
     controls.style.display = "none";
   }
 
+  let setPosition = (x,y) => {
+    controls.style.position = 'absolute';
+    controls.style.left = x + 'px';
+    controls.style.top = y + 'px';
+  }
+
   init();
 
   return {
@@ -42,6 +48,7 @@ let app = (() => {
     showControls,
     doBold,
     doItalic,
-    doUnderline
+    doUnderline,
+    setPosition
   }
 })();
