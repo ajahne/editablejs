@@ -1,12 +1,18 @@
 let app = (() => {
   const ID_HELLO_WORLD = "hello-world";
   const ID_CONTROLS = "controls";
-  let el = document.getElementById(ID_HELLO_WORLD);
-  let controls = document.getElementById(ID_CONTROLS);
+  let el;
+  let controls;
 
   let init = () => {
+    createElements();
     setControlsPositionStyleToAbsolute();
     hideControls();
+  }
+
+  let createElements = () => {
+    el = document.getElementById(ID_HELLO_WORLD);
+    controls = document.getElementById(ID_CONTROLS);
   }
 
   let executeCommand = command => {
