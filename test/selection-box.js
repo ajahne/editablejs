@@ -15,7 +15,7 @@ describe('selection-box', function() {
     let height = selectionBox.getHeight();
     assert.equal(typeof height, 'number');
   });
-  describe('dimensions', function() {
+  xdescribe('dimensions', function() {
     it ('should have a width greater than 0', function() {
       assert.isTrue(selectionBox.getWidth() > 0, 'true');
     });
