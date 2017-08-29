@@ -6,8 +6,22 @@ let app = (() => {
 
   let init = () => {
     createElements();
+    addEventListeners();
     setControlsPositionStyleToAbsolute();
     hideControls();
+  }
+
+  let handleMouseUp = (e) => {
+    controls.style.left = e.clientX + "px";
+    controls.style.top = e.clientY + "px";
+  }
+
+  let addEventListeners = () => {
+    document.addEventListener('mouseup', handleMouseUp);
+  }
+
+  let removeEventListeners = () => {
+    document.removeEventListener('mouseup', handleMouseUp);
   }
 
   let createElements = () => {
