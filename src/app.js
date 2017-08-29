@@ -5,6 +5,7 @@ let app = (() => {
   let controls = document.getElementById(ID_CONTROLS);
 
   let init = () => {
+    setControlsPositionStyleToAbsolute();
     hideControls();
   }
 
@@ -36,9 +37,12 @@ let app = (() => {
   }
 
   let setPosition = (x,y) => {
-    controls.style.position = 'absolute';
     controls.style.left = x + 'px';
     controls.style.top = y + 'px';
+  }
+
+  let setControlsPositionStyleToAbsolute = () => {
+    controls.style.position = 'absolute';
   }
 
   init();
