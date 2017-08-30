@@ -31,7 +31,6 @@ describe('rich text controls', function() {
     it ('should be at the x position of the mouse pointer', function() {
       document.addEventListener('mouseup', (e) => {
         let x = e.clientX;
-        console.log('%o is equal to %o', x, controls.style.left);
         assert.equal(controls.style.left, x + 'px');
       });
       simulateMouseUp();
