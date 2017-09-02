@@ -20,5 +20,5 @@ let selectionBox = (() => {
     getY,
     getWidth,
     getHeight
-  }
+  };
 })();

@@ -7,17 +7,17 @@
   let simulateSelectionChange = () => {
     let event = new Event('selectionchange');
     document.dispatchEvent(event);
-  }
+  };
 
   let simulateMouseUp = () => {
     let event = new MouseEvent('mouseup');
     document.dispatchEvent(event);
-  }
+  };
 
   let simulateMouseDown = () => {
     let event = new MouseEvent('mousedown');
     document.dispatchEvent(event);
-  }
+  };
 
   let stub = sinon.stub(document, 'getSelection');
   stub.returns({
