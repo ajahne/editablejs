@@ -5,12 +5,50 @@ let controls = (() => {
   let controls;
   let x;
   let y;
+  let buttonBold;
+  let buttonItalic;
+  let buttonUnderline;
+  let buttons;
 
   let init = () => {
     createElements();
+    setupButtons();
     addEventListeners();
     setControlsPositionStyleToAbsolute();
     hideControls();
+  };
+
+  let setupButtons = () => {
+    setButtons();
+    addButtonClickHandlers();
+  };
+
+  let setButtons = () => {
+    buttonBold = controls.getElementsByClassName('controls-button-bold')[0];
+    buttonItalic = controls.getElementsByClassName('controls-button-italic')[0];
+    buttonUnderline = controls.getElementsByClassName('controls-button-underline')[0];
+    buttons = {
+      bold: {
+        element: buttonBold,
+        clickHandler: doBold
+      },
+      italic: {
+        element: buttonItalic,
+        clickHandler: doItalic
+      },
+      underline: {
+        element: buttonUnderline,
+        clickHandler: doUnderline
+      }
+    }
+  };
+
+  let addButtonClickHandlers = () => {
+    for (let key in buttons) {
+      if (buttons.hasOwnProperty(key)) {
+          buttons[key].element.addEventListener('click', buttons[key].clickHandler);
+      }
+    }
   };
 
   let handleMouseUp = (e) => {
