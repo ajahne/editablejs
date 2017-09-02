@@ -27,17 +27,16 @@
   });
 
   describe('selection', function() {
-    let controls = document.getElementById('controls');
     it ('should show the controls', function() {
       simulateSelectionChange();
       simulateMouseUp();
-      assert.equal(controls.style.display, "block");
+      assert.equal(controls.isVisible(), true);
     });
     it ('should hide the controls', function() {
       simulateSelectionChange();
       simulateMouseUp();
       simulateMouseDown();
-      assert.equal(controls.style.display, "none");
+      assert.equal(controls.isVisible(), false);
     });
   });
 })();

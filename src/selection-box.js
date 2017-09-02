@@ -10,7 +10,6 @@ let selectionBox = (() => {
   let getHeight = () => height;
 
   document.addEventListener('mouseup', (e) => {
-    console.log('mouse up event %o', e);
     x = e.pageX;
     y = e.pageY;
   }, false);

@@ -30,10 +30,10 @@
     //is diff from previous selection
     if (currentSelectionText.length > 0 &&
         currentSelectionText !== previousSelectionText) {
-      app.showControls();
+      controls.showControls();
     }
     else {
-      app.hideControls();
+      controls.hideControls();
     }
     previousSelectionText = currentSelectionText;
   });

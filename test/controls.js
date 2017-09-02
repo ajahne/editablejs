@@ -8,37 +8,37 @@ let simulateMouseUp = () => {
 }
 
 describe('rich text controls', function() {
-  let controls = document.getElementById('controls');
+  // let controls = document.getElementById('controls');
   it('should show controls', function() {
-    app.showControls();
-    assert.equal(controls.style.display, 'block');
+    controls.showControls();
+    assert.equal(controls.isVisible(), true);
   });
   it('should hide controls', function() {
-    app.hideControls();
-    assert.equal(controls.style.display, 'none');
+    controls.hideControls();
+    assert.equal(controls.isVisible(), false);
   });
   describe('position', function() {
     it ('should move 100px from the left', function() {
       let x = 100;
-      app.setPosition(x, 0);
-      assert.equal(controls.style.left, x + 'px');
+      controls.setPosition(x, 0);
+      assert.equal(controls.getLeft(), x + 'px');
     });
     it ('should move 100px from the top', function() {
       let y = 100;
-      app.setPosition(0, y);
-      assert.equal(controls.style.top, y + 'px');
+      controls.setPosition(0, y);
+      assert.equal(controls.getTop(), y + 'px');
     });
     it ('should be at the x position of the mouse pointer', function() {
       document.addEventListener('mouseup', (e) => {
         let x = e.clientX;
-        assert.equal(controls.style.left, x + 'px');
+        assert.equal(controls.getLeft(), x + 'px');
       });
       simulateMouseUp();
     });
     it ('should be at the y position of the mouse pointer', function() {
       document.addEventListener('mouseup', (e) => {
         let y = e.clientY;
-        assert.equal(controls.style.top, y + 'px');
+        assert.equal(controls.getTop(), y + 'px');
       });
       simulateMouseUp();
     });

@@ -1,8 +1,10 @@
-let app = (() => {
+let controls = (() => {
   const ID_HELLO_WORLD = "hello-world";
   const ID_CONTROLS = "controls";
   let el;
   let controls;
+  let x;
+  let y;
 
   let init = () => {
     createElements();
@@ -56,9 +58,31 @@ let app = (() => {
     controls.style.display = "none";
   };
 
-  let setPosition = (x,y) => {
+  let isVisible = () => {
+    return controls.style.display === "block";
+  }
+
+  let setPosition = (newX, newY) => {
+    x = newX;
+    y = newY;
     controls.style.left = x + 'px';
     controls.style.top = y + 'px';
+  };
+
+  let getX = () => {
+    return x;
+  };
+
+  let getLeft = () => {
+    return controls.style.left
+  };
+
+  let getY = () => {
+    return y;
+  };
+
+  let getTop = () => {
+    return controls.style.top;
   };
 
   let setControlsPositionStyleToAbsolute = () => {
@@ -73,6 +97,9 @@ let app = (() => {
     doBold,
     doItalic,
     doUnderline,
-    setPosition
+    setPosition,
+    getLeft,
+    getTop,
+    isVisible
   };
 })();
