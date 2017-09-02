@@ -5,27 +5,27 @@
 
   let setSelection = () => {
     selection = document.getSelection();
-  }
+  };
 
   let setCurrentSelectionText = (value) => {
     currentSelectionText = value;
-  }
+  };
 
   let setSelectionAndCurrentSelectionText = () => {
     setSelection(document.getSelection());
     setCurrentSelectionText(selection.toString());
-  }
+  };
 
-  document.onselectionchange = () => {
+  document.addEventListener('selectionchange', (e) => {
     setSelectionAndCurrentSelectionText();
-  }
+  });
 
-  document.onmousedown = () => {
+  document.addEventListener('mousedown', () => {
     //clear current selection
     setCurrentSelectionText("");
-  }
+  });
 
-  document.onmouseup = () => {
+  document.addEventListener('mouseup', () => {
     //only show controls if the current selection
     //is diff from previous selection
     if (currentSelectionText.length > 0 &&
@@ -36,5 +36,5 @@
       app.hideControls();
     }
     previousSelectionText = currentSelectionText;
-  }
+  });
 })();
