@@ -29,18 +29,22 @@ describe('rich text controls', function() {
       assert.equal(controls.getTop(), y + 'px');
     });
     it ('should be at the x position of the mouse pointer', function() {
-      document.addEventListener('mouseup', (e) => {
+      let onMouseUp = e => {
         let x = e.clientX;
         assert.equal(controls.getLeft(), x + 'px');
-      });
+      }
+      document.addEventListener('mouseup', onMouseUp);
       simulateMouseUp();
+      document.removeEventListener('mouseup', onMouseUp);
     });
     it ('should be at the y position of the mouse pointer', function() {
-      document.addEventListener('mouseup', (e) => {
+      let onMouseUp = e => {
         let y = e.clientY;
         assert.equal(controls.getTop(), y + 'px');
-      });
+      }      
+      document.addEventListener('mouseup', onMouseUp);
       simulateMouseUp();
+      document.removeEventListener('mouseup', onMouseUp);
     });
   });
 });
