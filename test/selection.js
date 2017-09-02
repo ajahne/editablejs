@@ -14,6 +14,11 @@ let simulationMouseUp = () => {
   document.dispatchEvent(event);
 }
 
+let simulationMouseDown = () => {
+  let event = new MouseEvent('mousedown');
+  document.dispatchEvent(event);
+}
+
 let stub = sinon.stub(document, 'getSelection');
 stub.returns({
   toString:function() {
@@ -27,5 +32,11 @@ describe('selection', function() {
     simulateSelectionChange();
     simulationMouseUp();
     assert.equal(controls.style.display, "block");
+  });
+  it ('should hide the controls', function() {
+    simulateSelectionChange();
+    simulationMouseUp();
+    simulationMouseDown();
+    assert.equal(controls.style.display, "none");
   });
 });
