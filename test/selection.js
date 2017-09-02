@@ -5,23 +5,27 @@
 */
 
 let simulateSelectionChange = () => {
-  let event = new Event('selectionchange', {
-    name:'foo',
-      toString:function() {
-        return 'selected text';
-    }
-  });
+  let event = new Event('selectionchange');
   document.dispatchEvent(event);
 }
 
+let simulationMouseUp = () => {
+  let event = new MouseEvent('mouseup');
+  document.dispatchEvent(event);
+}
+
+let stub = sinon.stub(document, 'getSelection');
+stub.returns({
+  toString:function() {
+    return 'selected text';
+  }
+});
+
 describe('selection', function() {
+  let controls = document.getElementById('controls');
   it ('should show the controls', function() {
-    let onSelectionChange = (e) => {
-      console.log('selection test');
-      console.log(e);
-    };
-    document.addEventListener('selectionchange',onSelectionChange);
     simulateSelectionChange();
-    document.removeEventListener('selectionchange',onSelectionChange);
+    simulationMouseUp();
+    assert.equal(controls.style.display, "block");
   });
 });
