@@ -16,7 +16,7 @@
     setCurrentSelectionText(selection.toString());
   };
 
-  document.addEventListener('selectionchange', (e) => {
+  document.addEventListener('selectionchange', () => {
     setSelectionAndCurrentSelectionText();
   });
 
