@@ -1,7 +1,6 @@
 let controls = (() => {
   const ID_HELLO_WORLD = "hello-world";
   const ID_CONTROLS = "controls";
-  let el;
   let controls;
   let x;
   let y;
@@ -65,7 +64,6 @@ let controls = (() => {
   };
 
   let createElements = () => {
-    el = document.getElementById(ID_HELLO_WORLD);
     controls = document.getElementById(ID_CONTROLS);
   };
 
