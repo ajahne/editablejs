@@ -113,6 +113,14 @@ let controls = (() => {
     return controls.style.top;
   };
 
+  let getWidth = () => {
+    return controls.offsetWidth;
+  };
+
+  let getHeight = () => {
+    return controls.offsetHeight;
+  };
+
   let setControlsPositionStyleToAbsolute = () => {
     controls.style.position = 'absolute';
   };
@@ -128,6 +136,8 @@ let controls = (() => {
     setPosition,
     getLeft,
     getTop,
+    getWidth,
+    getHeight,
     isVisible
   };
 })();
