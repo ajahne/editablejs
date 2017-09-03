@@ -19,7 +19,6 @@ let selectionBox = (() => {
 
   let setRange = value => {
     range = value;
-    console.log(range.getBoundingClientRect());
   };
 
   let setSelection = value => {
