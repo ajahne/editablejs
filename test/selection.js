@@ -7,48 +7,10 @@
   let assert = chai.assert;
   let sandbox = sinon.createSandbox();
 
-  let simulateSelectionChange = () => {
-    let event = new Event('selectionchange');
-    document.dispatchEvent(event);
-  };
-
-  let simulateSelectionStart = () => {
-    let event = new Event('selectionstart');
-    document.dispatchEvent(event);
-  };
-
-  let simulateMouseUp = () => {
-    let event = new MouseEvent('mouseup');
-    document.dispatchEvent(event);
-  };
-
-  let simulateMouseDown = () => {
-    let event = new MouseEvent('mousedown');
-    document.dispatchEvent(event);
-  };
-
   describe('selection', function() {
     beforeEach(function () {
       let stub = sandbox.stub(document, 'getSelection');
-      stub.returns({
-        toString:function() {
-          return 'selected text';
-        },
-        getRangeAt:function() {
-          return {
-            getBoundingClientRect: function() {
-              return {
-                bottom: 34,
-                height: 18,
-                left: 39,
-                right: 79.140625,
-                top: 16,
-                width: 40.140625
-              }
-            }
-          }
-        }
-      });
+      stub.returns(getSelectionResult);
     });
 
     afterEach(function () {
