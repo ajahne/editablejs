@@ -12,6 +12,11 @@
     document.dispatchEvent(event);
   };
 
+  let simulateSelectionStart = () => {
+    let event = new Event('selectionstart');
+    document.dispatchEvent(event);
+  };
+
   let simulateMouseUp = () => {
     let event = new MouseEvent('mouseup');
     document.dispatchEvent(event);
@@ -37,13 +42,15 @@
       sandbox.restore();
     });
 
-    it ('should show the controls', function() {
+    it ('should show the controls on a new selection', function() {
+      simulateSelectionStart();
       simulateSelectionChange();
       simulateMouseUp();
       assert.equal(controls.isVisible(), true);
     });
 
-    it ('should hide the controls', function() {
+    it ('should hide the controls when there is a click outside', function() {
+      simulateSelectionStart();
       simulateSelectionChange();
       simulateMouseUp();
       simulateMouseDown();

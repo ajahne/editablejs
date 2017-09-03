@@ -16,25 +16,47 @@
     setCurrentSelectionText(selection.toString());
   };
 
-  document.addEventListener('selectionchange', () => {
-    setSelectionAndCurrentSelectionText();
-  });
-
-  document.addEventListener('mousedown', () => {
+  let onMouseDown = () => {
     //clear current selection
     setCurrentSelectionText("");
-  });
+    controls.hideControls();
+  };
 
-  document.addEventListener('mouseup', () => {
+  let onMouseUp = () => {
     //only show controls if the current selection
     //is diff from previous selection
-    if (currentSelectionText.length > 0 &&
-        currentSelectionText !== previousSelectionText) {
+    if (isValidSelection()) {
       controls.showControls();
     }
-    else {
-      controls.hideControls();
-    }
     previousSelectionText = currentSelectionText;
-  });
+  };
+
+  let isValidSelection = () => {
+    return (currentSelectionText.length > 0 &&
+            currentSelectionText !== previousSelectionText);
+  }
+
+  let onSelectionChange = () => {
+    setSelectionAndCurrentSelectionText();
+  };
+
+  let onSelectionStart = () => {
+    //add listeners now that the selection has begun
+    addMouseEventListeners();
+  }
+
+  let addMouseEventListeners = () => {
+    document.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('mouseup', onMouseUp);
+  }
+
+  let removeMouseEventListeners = () => {
+    document.removeEventListener('mousedown', onMouseDown);
+    document.removeEventListener('mouseup', onMouseUp);
+  }
+
+  document.addEventListener('selectionchange', onSelectionChange);
+  // document.addEventListener('selectionstart', onSelectionStart);
+
+  addMouseEventListeners();
 })();
