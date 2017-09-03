@@ -12,7 +12,6 @@
       let stub = sandbox.stub(document, 'getSelection');
       stub.returns(getSelectionResult);
     });
-
     afterEach(function () {
       // completely restore all fakes created through the sandbox
       sandbox.restore();
@@ -24,7 +23,6 @@
       simulateMouseUp();
       assert.equal(controls.isVisible(), true);
     });
-
     it ('should hide the controls when there is a click outside', function() {
       simulateSelectionStart();
       simulateSelectionChange();
@@ -32,6 +30,7 @@
       simulateMouseDown();
       assert.equal(controls.isVisible(), false);
     });
+
     describe('selection-box', function() {
       it('should return the x position of the mouse', function() {
         let x = selectionBox.getX();
