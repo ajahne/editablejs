@@ -1,4 +1,16 @@
 let assert = chai.assert;
+
+let buttonBold;
+let buttonItalic;
+let buttonUnderline;
+
+let setButtons = () => {
+  let controls = document.getElementById('controls');
+  buttonBold = controls.getElementsByClassName('controls-button-bold')[0];
+  buttonItalic = controls.getElementsByClassName('controls-button-italic')[0];
+  buttonUnderline = controls.getElementsByClassName('controls-button-underline')[0];
+}
+
 let simulateMouseUp = () => {
   let event = new MouseEvent('mouseup', {
     clientX: 50,
@@ -7,10 +19,28 @@ let simulateMouseUp = () => {
   document.dispatchEvent(event);
 }
 
+let simulateMouseDown = () => {
+  let event = new MouseEvent('mousedown');
+  document.dispatchEvent(event);
+}
+
+let simulateBoldButtonClick = () => {
+  let event = new MouseEvent('click');
+  buttonBold.dispatchEvent(event);
+}
+
 describe('rich text controls', function() {
-  // let controls = document.getElementById('controls');
+  setButtons();
   it('should show controls', function() {
     controls.showControls();
+    assert.equal(controls.isVisible(), true);
+  });
+  it ('should show the controls after a command has been clicked', function() {
+    controls.showControls();
+    //click bold
+    simulateBoldButtonClick();
+    simulateMouseUp();
+    //controls should still be visible
     assert.equal(controls.isVisible(), true);
   });
   it('should hide controls', function() {
@@ -41,7 +71,7 @@ describe('rich text controls', function() {
       let onMouseUp = e => {
         let y = e.clientY;
         assert.equal(controls.getTop(), y + 'px');
-      }      
+      }
       document.addEventListener('mouseup', onMouseUp);
       simulateMouseUp();
       document.removeEventListener('mouseup', onMouseUp);

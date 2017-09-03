@@ -2,8 +2,6 @@ let controls = (() => {
   const ID_HELLO_WORLD = "hello-world";
   const ID_CONTROLS = "controls";
   let controls;
-  let x;
-  let y;
   let buttonBold;
   let buttonItalic;
   let buttonUnderline;
@@ -50,17 +48,34 @@ let controls = (() => {
     }
   };
 
-  let handleMouseUp = (e) => {
+  let onMouseUp = (e) => {
     controls.style.left = e.clientX + "px";
     controls.style.top = e.clientY + "px";
   };
 
   let addEventListeners = () => {
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mouseup', onMouseUp);
+    //keep events that happen in the controls from bubbling up
+    //this way we can ensure that any events registered to parent
+    //elements (e.g. document) will not trigger a behavior tha impacts
+    //our expected behavior. Keep events contained to the controls
+    //example:
+    //if document has a click handler that tells the controls to hideControls
+    //then each time the controls will be hidden even if a valid selection
+    //has been entered by the user
+    controls.addEventListener('click', function(e) {
+      console.log('controls click');
+      e.stopPropagation();
+    }, false);
+
+    controls.addEventListener('mousedown', function(e) {
+      console.log('controls mouse down');
+      e.stopPropagation();
+    }, false);
   };
 
   let removeEventListeners = () => {
-    document.removeEventListener('mouseup', handleMouseUp);
+    document.removeEventListener('mouseup', onMouseUp);
   };
 
   let createElements = () => {
@@ -73,17 +88,14 @@ let controls = (() => {
 
   let doBold = () => {
     executeCommand("bold");
-    hideControls();
   };
 
   let doItalic = () => {
     executeCommand("italic");
-    hideControls();
   };
 
   let doUnderline = () => {
     executeCommand("underline");
-    hideControls();
   };
 
   let showControls = () => {
@@ -98,23 +110,13 @@ let controls = (() => {
     return controls.style.display === "block";
   }
 
-  let setPosition = (newX, newY) => {
-    x = newX;
-    y = newY;
+  let setPosition = (x, y) => {
     controls.style.left = x + 'px';
     controls.style.top = y + 'px';
   };
 
-  let getX = () => {
-    return x;
-  };
-
   let getLeft = () => {
-    return controls.style.left
-  };
-
-  let getY = () => {
-    return y;
+    return controls.style.left;
   };
 
   let getTop = () => {
