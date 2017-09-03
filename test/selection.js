@@ -33,6 +33,20 @@
       stub.returns({
         toString:function() {
           return 'selected text';
+        },
+        getRangeAt:function() {
+          return {
+            getBoundingClientRect: function() {
+              return {
+                bottom: 34,
+                height: 18,
+                left: 39,
+                right: 79.140625,
+                top: 16,
+                width: 40.140625
+              }
+            }
+          }
         }
       });
     });

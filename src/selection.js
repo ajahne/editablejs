@@ -1,4 +1,4 @@
-(() => {
+let selection = ((selectionBox) => {
   let selection;
   let currentSelectionText = "";
   let previousSelectionText = "";
@@ -15,6 +15,10 @@
     setSelection(document.getSelection());
     setCurrentSelectionText(selection.toString());
   };
+
+  let setupSelectionBox = () => {
+    selectionBox.setPropertiesFromSelection(selection);
+  }
 
   let onMouseDown = () => {
     //clear current selection
@@ -38,6 +42,7 @@
 
   let onSelectionChange = () => {
     setSelectionAndCurrentSelectionText();
+    setupSelectionBox();
   };
 
   let onSelectionStart = () => {
@@ -59,4 +64,4 @@
   // document.addEventListener('selectionstart', onSelectionStart);
 
   addMouseEventListeners();
-})();
+})(selectionBox);
