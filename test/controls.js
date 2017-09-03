@@ -11,10 +11,10 @@ let setButtons = () => {
   buttonUnderline = controls.getElementsByClassName('controls-button-underline')[0];
 }
 
-let simulateMouseUp = () => {
+let simulateMouseUp = (clientX = 50, pageY = 50) => {
   let event = new MouseEvent('mouseup', {
-    clientX: 50,
-    pageY: 50,
+    clientX: clientX,
+    pageY: pageY,
   });
   document.dispatchEvent(event);
 }
@@ -58,23 +58,17 @@ describe('rich text controls', function() {
       controls.setPosition(0, y);
       assert.equal(controls.getTop(), y + 'px');
     });
-    it ('should be at the x position of the mouse pointer', function() {
-      let onMouseUp = e => {
-        let x = e.clientX;
-        assert.equal(controls.getLeft(), x + 'px');
-      }
-      document.addEventListener('mouseup', onMouseUp);
-      simulateMouseUp();
-      document.removeEventListener('mouseup', onMouseUp);
-    });
-    it ('should be at the y position of the mouse pointer', function() {
-      let onMouseUp = e => {
-        let y = e.clientY;
-        assert.equal(controls.getTop(), y + 'px');
-      }
-      document.addEventListener('mouseup', onMouseUp);
-      simulateMouseUp();
-      document.removeEventListener('mouseup', onMouseUp);
+    it ('should not move when a button is clicked', function() {
+      //show controls
+      controls.showControls();
+      //get position
+      const x0 = controls.getLeft();
+      //click button
+      simulateBoldButtonClick();
+      simulateMouseUp(20, 20);
+      //check position
+      const x1 = controls.getLeft();
+      assert.equal(x0,x1);
     });
   });
 });

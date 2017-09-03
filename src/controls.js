@@ -48,13 +48,7 @@ let controls = (() => {
     }
   };
 
-  let onMouseUp = (e) => {
-    controls.style.left = e.clientX + "px";
-    controls.style.top = e.clientY + "px";
-  };
-
   let addEventListeners = () => {
-    document.addEventListener('mouseup', onMouseUp);
     //keep events that happen in the controls from bubbling up
     //this way we can ensure that any events registered to parent
     //elements (e.g. document) will not trigger a behavior tha impacts
@@ -72,10 +66,6 @@ let controls = (() => {
       console.log('controls mouse down');
       e.stopPropagation();
     }, false);
-  };
-
-  let removeEventListeners = () => {
-    document.removeEventListener('mouseup', onMouseUp);
   };
 
   let createElements = () => {
