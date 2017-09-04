@@ -6,13 +6,21 @@ let controls = (() => {
   let buttonItalic;
   let buttonUnderline;
   let buttons;
+  let width;
+  let height;
 
   let init = () => {
     createElements();
     setupButtons();
     addEventListeners();
     setControlsPositionStyleToAbsolute();
+    setInitialDimensions(); //must do before hiding
     hideControls();
+  };
+
+  let setInitialDimensions = () => {
+      width = controls.offsetWidth;
+      height = controls.offsetHeight;
   };
 
   let setupButtons = () => {
@@ -114,16 +122,26 @@ let controls = (() => {
   };
 
   let getWidth = () => {
-    return controls.offsetWidth;
+    return width;
   };
 
   let getHeight = () => {
-    return controls.offsetHeight;
+    return height;
   };
 
   let setControlsPositionStyleToAbsolute = () => {
     controls.style.position = 'absolute';
   };
+
+  /*
+  * it should be in the middle of the selection box
+  */
+  let setPositionBasedOnSelectionBox = selectionBox => {
+    const selectionBoxCenterX = selectionBox.getX() + selectionBox.getWidth()/2;
+    console.log('selectionBoxCenterX %o', selectionBoxCenterX);
+    let x = selectionBoxCenterX - getWidth()/2;
+    setPosition(x, getTop());
+  }
 
   init();
 
@@ -138,6 +156,7 @@ let controls = (() => {
     getTop,
     getWidth,
     getHeight,
+    setPositionBasedOnSelectionBox,
     isVisible
   };
 })();
