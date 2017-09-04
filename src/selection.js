@@ -1,4 +1,4 @@
-let selection = ((selectionBox) => {
+let selection = ((selectionBox, controls) => {
   let selection;
   let currentSelectionText = "";
   let previousSelectionText = "";
@@ -43,7 +43,12 @@ let selection = ((selectionBox) => {
   let onSelectionChange = () => {
     setSelectionAndCurrentSelectionText();
     setupSelectionBox();
+    setControlsPosition();
   };
+
+  let setControlsPosition = () => {
+    controls.setPositionBasedOnSelectionBox(selectionBox);
+  }
 
   let onSelectionStart = () => {
     //add listeners now that the selection has begun
@@ -64,4 +69,4 @@ let selection = ((selectionBox) => {
   // document.addEventListener('selectionstart', onSelectionStart);
 
   addMouseEventListeners();
-})(selectionBox);
+})(selectionBox, controls);
