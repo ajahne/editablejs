@@ -21,6 +21,15 @@ let assert = chai.assert;
     return boudingClientRect.left + boudingClientRect.width/2;
   }
 
+  let selectionBox = {
+    getX: function () {
+      return boudingClientRect.left
+    },
+    getWidth: function () {
+      return boudingClientRect.width;
+    }
+  }
+
   describe('rich text controls', function() {
     setButtons();
     it('should show controls', function() {
@@ -79,14 +88,6 @@ let assert = chai.assert;
         assert.equal(x0,x1);
       });
       it('should be at the center of the selection box', function() {
-        let selectionBox = {
-          getX: function () {
-            return boudingClientRect.left
-          },
-          getWidth: function () {
-            return boudingClientRect.width;
-          }
-        }
         controls.setPositionBasedOnSelectionBox(selectionBox);
         let centerX = getRectCenterX();
         console.log('centerX %o', centerX);
