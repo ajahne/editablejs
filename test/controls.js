@@ -4,6 +4,14 @@ let assert = chai.assert;
   let buttonBold;
   let buttonItalic;
   let buttonUnderline;
+  let selectionBox = {
+    getX: function () {
+      return boudingClientRect.left
+    },
+    getWidth: function () {
+      return boudingClientRect.width;
+    }
+  }
 
   let setButtons = () => {
     let controls = document.getElementById('controls');
@@ -19,15 +27,6 @@ let assert = chai.assert;
 
   let getRectCenterX = () => {
     return boudingClientRect.left + boudingClientRect.width/2;
-  }
-
-  let selectionBox = {
-    getX: function () {
-      return boudingClientRect.left
-    },
-    getWidth: function () {
-      return boudingClientRect.width;
-    }
   }
 
   describe('rich text controls', function() {
@@ -88,11 +87,9 @@ let assert = chai.assert;
         assert.equal(x0,x1);
       });
       it('should be at the center of the selection box', function() {
-        controls.setPositionBasedOnSelectionBox(selectionBox);
         let centerX = getRectCenterX();
-        console.log('centerX %o', centerX);
-        controls.showControls();
         let x = centerX - controls.getWidth()/2;
+        controls.setPositionBasedOnSelectionBox(selectionBox);        
         assert.equal(controls.getLeft(), x + 'px');
       });
     });
