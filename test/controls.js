@@ -5,11 +5,17 @@ let assert = chai.assert;
   let buttonItalic;
   let buttonUnderline;
   let selectionBox = {
-    getX: function () {
+    getX: function() {
       return boudingClientRect.left
     },
-    getWidth: function () {
+    getY: function() {
+      return boudingClientRect.top;
+    },
+    getWidth: function() {
       return boudingClientRect.width;
+    },
+    getHeight: function() {
+      return boudingClientRect.height;
     }
   }
 
@@ -89,8 +95,13 @@ let assert = chai.assert;
       it('should be at the center of the selection box', function() {
         let centerX = getRectCenterX();
         let x = centerX - controls.getWidth()/2;
-        controls.setPositionBasedOnSelectionBox(selectionBox);        
+        controls.setPositionBasedOnSelectionBox(selectionBox);
         assert.equal(controls.getLeft(), x + 'px');
+      });
+      it('should be above the selection box', function() {
+        controls.setPositionBasedOnSelectionBox(selectionBox);
+        let top = parseInt(controls.getTop());
+        assert.equal(top < selectionBox.getY(), true);
       });
     });
   });

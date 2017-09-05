@@ -138,9 +138,9 @@ let controls = (() => {
   */
   let setPositionBasedOnSelectionBox = selectionBox => {
     const selectionBoxCenterX = selectionBox.getX() + selectionBox.getWidth()/2;
-    console.log('selectionBoxCenterX %o', selectionBoxCenterX);
     let x = selectionBoxCenterX - getWidth()/2;
-    setPosition(x, getTop());
+    let y = selectionBox.getY() - getHeight();
+    setPosition(x, y);
   }
 
   init();
