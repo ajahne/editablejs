@@ -66,12 +66,10 @@ let controls = (() => {
     //then each time the controls will be hidden even if a valid selection
     //has been entered by the user
     controls.addEventListener('click', function(e) {
-      console.log('controls click');
       e.stopPropagation();
     }, false);
 
     controls.addEventListener('mousedown', function(e) {
-      console.log('controls mouse down');
       e.stopPropagation();
     }, false);
   };
