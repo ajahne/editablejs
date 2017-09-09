@@ -18,7 +18,7 @@ let selection = ((selectionBox, controls) => {
 
   let setupSelectionBox = () => {
     selectionBox.setPropertiesFromSelection(selection);
-  }
+  };
 
   let onMouseDown = () => {
     //clear current selection
@@ -38,7 +38,7 @@ let selection = ((selectionBox, controls) => {
   let isValidSelection = () => {
     return (currentSelectionText.length > 0 &&
             currentSelectionText !== previousSelectionText);
-  }
+  };
 
   let onSelectionChange = () => {
     setSelectionAndCurrentSelectionText();
@@ -54,22 +54,22 @@ let selection = ((selectionBox, controls) => {
 
   let setControlsPosition = () => {
     controls.setPositionBasedOnSelectionBox(selectionBox);
-  }
+  };
 
   let onSelectionStart = () => {
     //add listeners now that the selection has begun
     addMouseEventListeners();
-  }
+  };
 
   let addMouseEventListeners = () => {
     document.addEventListener('mousedown', onMouseDown);
     document.addEventListener('mouseup', onMouseUp);
-  }
+  };
 
   let removeMouseEventListeners = () => {
     document.removeEventListener('mousedown', onMouseDown);
     document.removeEventListener('mouseup', onMouseUp);
-  }
+  };
 
   document.addEventListener('selectionchange', onSelectionChange);
   // document.addEventListener('selectionstart', onSelectionStart);
