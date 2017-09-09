@@ -34,19 +34,19 @@
     describe('selection-box', function() {
       it('should return the x position of the selection', function() {
         let x = selectionBox.getX();
-        assert.equal(typeof x, 'number');
+        assert.equal(x, boudingClientRect.left);
       });
       it('should return the y position of the selection', function() {
         let y = selectionBox.getY();
-        assert.equal(typeof y, 'number');
+        assert.equal(y, boudingClientRect.top);
       });
       it('should return the width of the selection', function() {
         let width = selectionBox.getWidth();
-        assert.equal(typeof width, 'number');
+        assert.equal(width, boudingClientRect.width);
       });
       it('should return the height of the selection', function() {
         let height = selectionBox.getHeight();
-        assert.equal(typeof height, 'number');
+        assert.equal(height, boudingClientRect.height);
       });
 
       describe('dimensions', function() {
