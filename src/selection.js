@@ -43,7 +43,13 @@ let selection = ((selectionBox, controls) => {
   let onSelectionChange = () => {
     setSelectionAndCurrentSelectionText();
     setupSelectionBox();
-    setControlsPosition();
+    //only tell the controls to change their position
+    //if the text itself has changed.  This avoids any unwanted
+    //shifting based on the width/height of the box changing
+    //simply because it has been modified by bold/italic/underline/etc
+    if (currentSelectionText !== previousSelectionText) {
+      setControlsPosition();
+    }
   };
 
   let setControlsPosition = () => {
