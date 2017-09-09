@@ -33,20 +33,16 @@
 
     describe('selection-box', function() {
       it('should return the x position of the selection', function() {
-        let x = selectionBox.getX();
-        assert.equal(x, boudingClientRect.left);
+        assert.equal(selectionBox.getX(), boudingClientRect.left);
       });
       it('should return the y position of the selection', function() {
-        let y = selectionBox.getY();
-        assert.equal(y, boudingClientRect.top);
+        assert.equal(selectionBox.getY(), boudingClientRect.top);
       });
       it('should return the width of the selection', function() {
-        let width = selectionBox.getWidth();
-        assert.equal(width, boudingClientRect.width);
+        assert.equal(selectionBox.getWidth(), boudingClientRect.width);
       });
       it('should return the height of the selection', function() {
-        let height = selectionBox.getHeight();
-        assert.equal(height, boudingClientRect.height);
+        assert.equal( selectionBox.getHeight(), boudingClientRect.height);
       });
 
       describe('dimensions', function() {
