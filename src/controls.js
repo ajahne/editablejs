@@ -104,7 +104,7 @@ let controls = (() => {
 
   let isVisible = () => {
     return controls.style.display === "block";
-  }
+  };
 
   let setPosition = (x, y) => {
     controls.style.left = x + 'px';
@@ -139,7 +139,7 @@ let controls = (() => {
     let x = selectionBoxCenterX - getWidth()/2;
     let y = selectionBox.getY() - getHeight();
     setPosition(x, y);
-  }
+  };
 
   init();
 
