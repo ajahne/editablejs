@@ -42,7 +42,10 @@ let selection = ((selectionBox, controls) => {
 
   let onSelectionChange = () => {
     setSelectionAndCurrentSelectionText();
-    setupSelectionBox();
+    //avoid empty string selections that may cause errors
+    if (isValidSelection()) {
+      setupSelectionBox();
+    }
     //only tell the controls to change their position
     //if the text itself has changed.  This avoids any unwanted
     //shifting based on the width/height of the box changing
