@@ -36,7 +36,7 @@ let simulateMouseUp = (clientX = 50, pageY = 50) => {
     pageY: pageY,
   });
   document.dispatchEvent(event);
-}
+};
 
 // let simulateMouseUp = () => {
 //   let event = new MouseEvent('mouseup');

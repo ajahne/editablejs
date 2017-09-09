@@ -7,6 +7,11 @@ let selectionBox = (() => {
   let range;
   let rangeBoundingClientRect;
 
+  let getX = () => x;
+  let getY = () => y;
+  let getWidth = () => width;
+  let getHeight = () => height;
+
   /*
    * What are we doing?
    * grab a selection and see what the properties are
@@ -24,11 +29,6 @@ let selectionBox = (() => {
   let setSelection = value => {
     selection = value;
   };
-
-  let getX = () => x;
-  let getY = () => y;
-  let getWidth = () => width;
-  let getHeight = () => height;
 
   /**
   * Example

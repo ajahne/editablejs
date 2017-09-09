@@ -17,23 +17,23 @@ let assert = chai.assert;
     getHeight: function() {
       return boudingClientRect.height;
     }
-  }
+  };
 
   let setButtons = () => {
     let controls = document.getElementById('controls');
     buttonBold = controls.getElementsByClassName('controls-button-bold')[0];
     buttonItalic = controls.getElementsByClassName('controls-button-italic')[0];
     buttonUnderline = controls.getElementsByClassName('controls-button-underline')[0];
-  }
+  };
 
   let simulateBoldButtonClick = () => {
     let event = new MouseEvent('click');
     buttonBold.dispatchEvent(event);
-  }
+  };
 
   let getRectCenterX = () => {
     return boudingClientRect.left + boudingClientRect.width/2;
-  }
+  };
 
   describe('rich text controls', function() {
     setButtons();
