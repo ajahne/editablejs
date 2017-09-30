@@ -4,7 +4,7 @@ Edit any HTML element and allow for rich text formatting
 ## Idea
 - Allow any HTML element to be editable.  
 - Any text is directly editable, text can be styled via a style popup (similar to Slack/iOS)
-- Popup provides (simple) rich text editing capability
+- Popup provides (simple) rich text editing capability (bold, italics, underline)
 
 ## User Stories
 - Sarah wants to edit the title of a page
