@@ -19,8 +19,8 @@ let controls = (() => {
   };
 
   let setInitialDimensions = () => {
-      width = controls.offsetWidth;
-      height = controls.offsetHeight;
+    width = controls.offsetWidth;
+    height = controls.offsetHeight;
   };
 
   let setupButtons = () => {
@@ -132,8 +132,8 @@ let controls = (() => {
   };
 
   /*
-  * it should be in the middle of the selection box
-  */
+   * it should be in the middle of the selection box
+   */
   let setPositionBasedOnSelectionBox = selectionBox => {
     const selectionBoxCenterX = selectionBox.getX() + selectionBox.getWidth()/2;
     let x = selectionBoxCenterX - getWidth()/2;
