@@ -30,16 +30,16 @@ let selectionBox = (() => {
     selection = value;
   };
 
-  /**
-  * Example
-  *
-  * bottom: 34
-  * height: 18
-  * left: 39
-  * right: 79.140625
-  * top: 16
-  * width: 40.140625
-  */
+  /*
+   * Example
+   *
+   * bottom: 34
+   * height: 18
+   * left: 39
+   * right: 79.140625
+   * top: 16
+   * width: 40.140625
+   */
   let setBoundingRectProperties = rect => {
       x = rect.left;
       y = rect.top;
