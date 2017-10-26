@@ -42,7 +42,7 @@
         assert.equal(selectionBox.getWidth(), boudingClientRect.width);
       });
       it('should return the height of the selection', function() {
-        assert.equal( selectionBox.getHeight(), boudingClientRect.height);
+        assert.equal(selectionBox.getHeight(), boudingClientRect.height);
       });
 
       describe('dimensions', function() {
