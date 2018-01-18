@@ -1,6 +1,16 @@
 # editablejs
 Edit any HTML element and allow for rich text formatting
 
+## how to build
+### Building src
+build the src
+```
+npm run build
+```
+open ```src/index.html``` in your browser
+### Running tests
+open ```test/index.html``` in your browser
+
 ## Idea
 - Allow any HTML element to be editable.  
 - Any text is directly editable, text can be styled via a style popup (similar to Slack/iOS)
