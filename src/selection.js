@@ -1,7 +1,7 @@
 let selection = ((selectionBox, controls) => {
   let selection;
-  let currentSelectionText = "";
-  let previousSelectionText = "";
+  let currentSelectionText = '';
+  let previousSelectionText = '';
 
   let setSelection = () => {
     selection = document.getSelection();
@@ -22,7 +22,7 @@ let selection = ((selectionBox, controls) => {
 
   let onMouseDown = () => {
     //clear current selection
-    setCurrentSelectionText("");
+    setCurrentSelectionText('');
     controls.hideControls();
   };
 

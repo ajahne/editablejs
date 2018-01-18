@@ -1,8 +1,8 @@
 /*
-* What should the selection do?
-* show controls when a new set of text has been selected
-* hide controls when no selection
-*/
+ * What should the selection do?
+ * show controls when a new set of text has been selected
+ * hide controls when no selection
+ */
 (() => {
   let assert = chai.assert;
   let sandbox = sinon.createSandbox();
@@ -42,7 +42,7 @@
         assert.equal(selectionBox.getWidth(), boudingClientRect.width);
       });
       it('should return the height of the selection', function() {
-        assert.equal( selectionBox.getHeight(), boudingClientRect.height);
+        assert.equal(selectionBox.getHeight(), boudingClientRect.height);
       });
 
       describe('dimensions', function() {
