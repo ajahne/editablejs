@@ -4,12 +4,12 @@
  * hide controls when no selection
  */
 (() => {
-  let assert = chai.assert;
-  let sandbox = sinon.createSandbox();
+  const assert = chai.assert;
+  const sandbox = sinon.createSandbox();
 
   describe('selection', function() {
     beforeEach(function () {
-      let stub = sandbox.stub(document, 'getSelection');
+      const stub = sandbox.stub(document, 'getSelection');
       stub.returns(getSelectionResult);
     });
     afterEach(function () {
