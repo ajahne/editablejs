@@ -20,18 +20,18 @@ const getSelectionResult = {
   }
 };
 
-let simulateSelectionChange = () => {
-  let event = new Event('selectionchange');
+const simulateSelectionChange = () => {
+  const event = new Event('selectionchange');
   document.dispatchEvent(event);
 };
 
-let simulateSelectionStart = () => {
-  let event = new Event('selectionstart');
+const simulateSelectionStart = () => {
+  const event = new Event('selectionstart');
   document.dispatchEvent(event);
 };
 
-let simulateMouseUp = (clientX = 50, pageY = 50) => {
-  let event = new MouseEvent('mouseup', {
+const simulateMouseUp = (clientX = 50, pageY = 50) => {
+  const event = new MouseEvent('mouseup', {
     clientX: clientX,
     pageY: pageY,
   });
@@ -43,7 +43,7 @@ let simulateMouseUp = (clientX = 50, pageY = 50) => {
 //   document.dispatchEvent(event);
 // };
 
-let simulateMouseDown = () => {
-  let event = new MouseEvent('mousedown');
+const simulateMouseDown = () => {
+  const event = new MouseEvent('mousedown');
   document.dispatchEvent(event);
 };
