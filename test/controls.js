@@ -1,10 +1,11 @@
-let assert = chai.assert;
+const assert = chai.assert;
 
 (() => {
   let buttonBold;
   let buttonItalic;
   let buttonUnderline;
-  let selectionBox = {
+  
+  const selectionBox = {
     getX: function() {
       return boudingClientRect.left
     },
@@ -19,19 +20,19 @@ let assert = chai.assert;
     }
   };
 
-  let setButtons = () => {
-    let controls = document.getElementById('controls');
+  const setButtons = () => {
+    const controls = document.getElementById('controls');
     buttonBold = controls.getElementsByClassName('controls-button-bold')[0];
     buttonItalic = controls.getElementsByClassName('controls-button-italic')[0];
     buttonUnderline = controls.getElementsByClassName('controls-button-underline')[0];
   };
 
-  let simulateBoldButtonClick = () => {
-    let event = new MouseEvent('click');
+  const simulateBoldButtonClick = () => {
+    const event = new MouseEvent('click');
     buttonBold.dispatchEvent(event);
   };
 
-  let getRectCenterX = () => {
+  const getRectCenterX = () => {
     return boudingClientRect.left + boudingClientRect.width/2;
   };
 
@@ -71,12 +72,12 @@ let assert = chai.assert;
 
     describe('position', function() {
       it ('should move 100px from the left', function() {
-        let x = 100;
+        const x = 100;
         controls.setPosition(x, 0);
         assert.equal(controls.getLeft(), x + 'px');
       });
       it ('should move 100px from the top', function() {
-        let y = 100;
+        const y = 100;
         controls.setPosition(0, y);
         assert.equal(controls.getTop(), y + 'px');
       });
@@ -93,14 +94,14 @@ let assert = chai.assert;
         assert.equal(x0,x1);
       });
       it('should be at the center of the selection box', function() {
-        let centerX = getRectCenterX();
-        let x = centerX - controls.getWidth()/2;
+        const centerX = getRectCenterX();
+        const x = centerX - controls.getWidth()/2;
         controls.setPositionBasedOnSelectionBox(selectionBox);
         assert.equal(controls.getLeft(), x + 'px');
       });
       it('should be above the selection box', function() {
         controls.setPositionBasedOnSelectionBox(selectionBox);
-        let top = parseInt(controls.getTop());
+        const top = parseInt(controls.getTop());
         assert.equal(top < selectionBox.getY(), true);
       });
     });
